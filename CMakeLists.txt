@@ -3,6 +3,9 @@ project(ImGuizmo)
 
 set(IMGUIZMO_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 
+include_directories(${IMGUI_INCLUDE_DIR})
+include_directories(${IMGUIZMO_DIR})
+
 set(IMGUIZMO_SOURCES
 	${IMGUIZMO_DIR}/ImGuizmo.cpp
 	${IMGUIZMO_DIR}/ImGuizmo.h
@@ -10,8 +13,6 @@ set(IMGUIZMO_SOURCES
 )
 
 add_library(${PROJECT_NAME} STATIC ${IMGUIZMO_SOURCES})
-
-include_directories(${IMGUIZMO_DIR})
 
 if(APPLE)
 	LIST(APPEND IMGUIZMO_CFLAGS -fvisibility=hidden)
