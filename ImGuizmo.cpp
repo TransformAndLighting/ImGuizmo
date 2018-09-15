@@ -68,25 +68,24 @@ namespace ImGuizmo
    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
    static Context * gContext = NULL;
 
-   void * CreateContext(void)
+   Context * CreateContext(void)
    {
       return new Context();
    }
 
-   void DestroyContext(void * ctx)
+   void DestroyContext(Context * ctx)
    {
-      Context * c = reinterpret_cast<Context *>(ctx);
-      delete c;
+      delete ctx;
    }
 
-   void * GetCurrentContext(void)
+   Context * GetCurrentContext(void)
    {
-      return reinterpret_cast<void *>(gContext);
+      return gContext;
    }
 
-   void SetCurrentContext(void * ctx)
+   void SetCurrentContext(Context * ctx)
    {
-      gContext = reinterpret_cast<Context *>(ctx);
+      gContext = ctx;
    }
    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
